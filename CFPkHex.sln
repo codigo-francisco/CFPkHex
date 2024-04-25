@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFPkHex.Backend", "CFPkHex.Backend\CFPkHex.Backend.csproj", "{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B9DB1A8-1DFF-4D08-907E-812CCC769384}
+	EndGlobalSection
+EndGlobal
