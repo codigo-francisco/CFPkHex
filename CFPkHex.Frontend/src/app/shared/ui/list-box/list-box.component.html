@@ -1,0 +1,9 @@
+<button>{{'<<'}}</button>
+    <select>
+        @for (box of boxes; track box) {
+            <option>{{box.name}}</option>
+        }
+    </select>
+<button>{{'>>'}}</button>
+
+<app-view-box [viewBoxConfig]="viewBoxConfig"></app-view-box>

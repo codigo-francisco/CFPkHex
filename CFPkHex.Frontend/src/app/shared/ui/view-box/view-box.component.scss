@@ -1,0 +1,12 @@
+.view-box-root {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.view-box {
+    padding: 5px;
+    border: 0.1em solid black;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}

@@ -1,4 +1,6 @@
 
+using CFPkHex.Backend.Services;
+
 namespace CFPkHex.Backend
 {
     public class Program
@@ -10,6 +12,16 @@ namespace CFPkHex.Backend
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddScopedServices();
+            builder.Services.AddCors(setup =>
+            {
+                setup.AddDefaultPolicy(corsSetup =>
+                {
+                    corsSetup.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -22,6 +34,8 @@ namespace CFPkHex.Backend
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors();
 
             app.UseHttpsRedirection();
 

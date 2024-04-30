@@ -1,0 +1,1 @@
+export type Generation = "first-generation" | "second-generation" | "empty";

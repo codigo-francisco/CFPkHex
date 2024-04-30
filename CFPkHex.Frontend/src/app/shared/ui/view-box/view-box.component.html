@@ -1,0 +1,7 @@
+<div class="view-box-root">
+    @for (pokemon of viewBoxConfig.pokemons; track pokemon) {
+        <div class="view-box">
+            <img [src]="pokemon.sprite" [alt]="pokemon.name">
+        </div>
+    }
+</div>

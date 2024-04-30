@@ -1,1 +1,9 @@
-<h1>Hola</h1>
+<div class="root">
+  <h1>{{title}}</h1>
+
+  SAVE File to Add Max Candies
+  <form [formGroup]="form" enctype="multipart/form-data">
+    Save File <input type="file" formControlName="savePokemonFile" (change)="uploadFile($event)">
+  </form>
+  <button (click)="submitForm()">Subir SaveFile</button>
+</div>

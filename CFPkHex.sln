@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFPkHex.Backend", "CFPkHex.Backend\CFPkHex.Backend.csproj", "{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFPkHex.Backend", "CFPkHex.Backend\CFPkHex.Backend.csproj", "{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKHeX.Core", "PkHex\PKHeX.Core\PKHeX.Core.csproj", "{DE3467DA-40D4-4D4E-A8F9-86726AA98948}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D50459F5-CEB2-4ED6-8F05-5FD1419A2F21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE3467DA-40D4-4D4E-A8F9-86726AA98948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3467DA-40D4-4D4E-A8F9-86726AA98948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3467DA-40D4-4D4E-A8F9-86726AA98948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3467DA-40D4-4D4E-A8F9-86726AA98948}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
