@@ -1,8 +1,9 @@
-﻿using PKHeX.Core;
+﻿using CFPkHex.Backend.Models.General;
+using PKHeX.Core;
 
 namespace CFPkHex.Backend.Repository
 {
-    public class Gen4Repository : IInventoryRepository
+    public class Gen4Repository : IRepository
     {
         private readonly SAV4 _save;
         public Gen4Repository(SAV4 save) 
@@ -11,8 +12,6 @@ namespace CFPkHex.Backend.Repository
         }
         public SaveFile AddMaxCandies()
         {
-            var original = _save.Clone();
-
             var inventories = _save.Inventory.ToList();
 
             foreach (InventoryPouch4 inventoryPouch in inventories)
@@ -31,9 +30,26 @@ namespace CFPkHex.Backend.Repository
 
             _save.Inventory = inventories;
 
-            original.CopyChangesFrom(_save);
+            _save.Write();
 
-            return original;
+            return _save;
+        }
+
+        public SaveInfo GetSaveInfo()
+        {
+            var pokemons = _save.PartyData.ToList();
+
+            var saveInfo = new SaveInfo();
+
+            var pokemonsData = pokemons.Select(pkm => new Pokemon
+            {
+                Name = pkm.Nickname,
+                Level = pkm.CurrentLevel
+            });
+
+            saveInfo.Pokemons.AddRange(pokemonsData);
+
+            return saveInfo;
         }
     }
 }

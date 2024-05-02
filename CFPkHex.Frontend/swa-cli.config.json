@@ -9,9 +9,7 @@
       "appBuildCommand": "npm run build",
       "run": "npm run start",
       "appName": "cfpkhexfront",
-      "appDevserverUrl": "http://localhost:4200",
-      "tenant": "341d29f1-52da-4e34-a092-e9ea9cc8ab4d",
-      "subscription": "6752881a-8390-4a6d-a9e5-6c85400e1210"
+      "appDevserverUrl": "http://localhost:4200"
     }
   }
 }

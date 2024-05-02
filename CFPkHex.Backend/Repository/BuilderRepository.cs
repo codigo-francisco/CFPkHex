@@ -2,9 +2,9 @@
 
 namespace CFPkHex.Backend.Repository
 {
-    public class InventoryBuilderRepository
+    public class BuilderRepository
     {
-        public IInventoryRepository GetInventoryRepository(object obj)
+        public IRepository GetRepository(object obj)
         {
             if (obj is SAV3 save3)
             {

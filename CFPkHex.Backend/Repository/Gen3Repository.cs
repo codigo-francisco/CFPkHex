@@ -1,8 +1,10 @@
-﻿using PKHeX.Core;
+﻿using CFPkHex.Backend.Models.General;
+using PKHeX.Core;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CFPkHex.Backend.Repository
 {
-    public class Gen3Repository : IInventoryRepository
+    public class Gen3Repository : IRepository
     {
         private readonly SAV3 _save;
         public Gen3Repository(SAV3 save) 
@@ -11,8 +13,6 @@ namespace CFPkHex.Backend.Repository
         }
         public SaveFile AddMaxCandies()
         {
-            var original = _save.Clone();
-
             var inventories = _save.Inventory.ToList();
 
             foreach (InventoryPouch3 inventoryPouch in inventories)
@@ -31,9 +31,15 @@ namespace CFPkHex.Backend.Repository
 
             _save.Inventory = inventories;
 
-            original.CopyChangesFrom(_save);
+            //Se ocupa ejecutar el write para que quede reflejado en el bloque Data
+            _save.Write();
 
-            return original;
+            return _save;
+        }
+
+        public SaveInfo GetSaveInfo()
+        {
+            throw new NotImplementedException();
         }
     }
 }

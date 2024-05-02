@@ -6,7 +6,7 @@ namespace CFPkHex.Backend.Services
     {
         public static IServiceCollection AddScopedServices(this IServiceCollection services)
         {
-            services.AddScoped<InventoryBuilderRepository>();
+            services.AddScoped<BuilderRepository>();
 
             return services;
         }

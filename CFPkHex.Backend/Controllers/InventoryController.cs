@@ -9,9 +9,9 @@ using PKHeX.Core;
 [Route("/api/inventory")]
 public class InventoryController : ControllerBase
 {
-    private readonly InventoryBuilderRepository _builderRepository;
+    private readonly BuilderRepository _builderRepository;
     public InventoryController(
-        InventoryBuilderRepository boxBuilderRepository
+        BuilderRepository boxBuilderRepository
     )
     {
         _builderRepository = boxBuilderRepository;
@@ -27,7 +27,7 @@ public class InventoryController : ControllerBase
         await savePokemonFile.CopyToAsync(ms);
         var obj = FileUtil.GetSupportedFile(ms.ToArray(), ext, null);
 
-        IInventoryRepository boxRepository = _builderRepository.GetInventoryRepository(obj!);
+        IInventoryRepository boxRepository = _builderRepository.GetRepository(obj!);
         var newSaveFile = boxRepository.AddMaxCandies();
 
         return File(newSaveFile.Data, "application/octet-stream", savePokemonFile.FileName);
