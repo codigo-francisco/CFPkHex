@@ -21,21 +21,12 @@ namespace CFPkHex.Backend.Controllers
         public async Task<IActionResult> GetSaveInfo(IFormFile saveGame)
         {
             using var ms = new MemoryStream();
-            var ext = Path.GetExtension(saveGame.FileName);
             await saveGame.CopyToAsync(ms);
-            var obj = FileUtil.GetSupportedFile(ms.ToArray(), ext, null);
 
-            if (obj != null)
-            {
-                var repository = _builderRepository.GetRepository(obj);
-                var saveInfo = repository.GetSaveInfo();
+            var repository = _builderRepository.GetRepository(ms.ToArray(), saveGame.FileName);
+            var saveInfo = repository.GetSaveInfo();
 
-                return Ok(saveInfo);
-            }
-            else
-            {
-                throw new Exception("Archivo no soportado");
-            }
+            return Ok(saveInfo);
         }
     }
 }

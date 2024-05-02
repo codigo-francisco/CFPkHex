@@ -1,16 +1,18 @@
 ﻿using CFPkHex.Backend.Models.General;
+using CFPkHex.Core.Repository;
 using PKHeX.Core;
 
 namespace CFPkHex.Backend.Repository
 {
-    public class Gen4Repository : IRepository
+    public class Gen4Repository : BaseRepository
     {
         private readonly SAV4 _save;
-        public Gen4Repository(SAV4 save) 
+        public Gen4Repository(SAV4 save)
+            : base(save)
         {
             _save = save;
         }
-        public SaveFile AddMaxCandies()
+        public override SaveFile AddMaxCandies()
         {
             var inventories = _save.Inventory.ToList();
 
@@ -35,7 +37,7 @@ namespace CFPkHex.Backend.Repository
             return _save;
         }
 
-        public SaveInfo GetSaveInfo()
+        public override SaveInfo GetSaveInfo()
         {
             var pokemons = _save.PartyData.ToList();
 

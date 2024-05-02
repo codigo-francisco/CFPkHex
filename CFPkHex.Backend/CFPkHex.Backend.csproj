@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PkHex\PKHeX.Core\PKHeX.Core.csproj" />
+    <ProjectReference Include="..\CFPkHex.Core\CFPkHex.Core.csproj" />
   </ItemGroup>
 
 </Project>

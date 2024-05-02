@@ -23,11 +23,9 @@ public class InventoryController : ControllerBase
     {
         using var ms = new MemoryStream();
         var savePokemonFile = request.SavePokemonFile;
-        var ext = Path.GetExtension(savePokemonFile.FileName);
         await savePokemonFile.CopyToAsync(ms);
-        var obj = FileUtil.GetSupportedFile(ms.ToArray(), ext, null);
 
-        IInventoryRepository boxRepository = _builderRepository.GetRepository(obj!);
+        IInventoryRepository boxRepository = _builderRepository.GetRepository(ms.ToArray(), request.SavePokemonFile.FileName);
         var newSaveFile = boxRepository.AddMaxCandies();
 
         return File(newSaveFile.Data, "application/octet-stream", savePokemonFile.FileName);

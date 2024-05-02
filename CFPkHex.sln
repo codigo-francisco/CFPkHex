@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFPkHex.Backend", "CFPkHex.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKHeX.Core", "PkHex\PKHeX.Core\PKHeX.Core.csproj", "{DE3467DA-40D4-4D4E-A8F9-86726AA98948}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFPkHex.MAUI", "CFPkHex.MAUI\CFPkHex.MAUI.csproj", "{EB34BD68-B23C-4C85-AA15-AD6F5677970F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFPkHex.Core", "CFPkHex.Core\CFPkHex.Core.csproj", "{6AEF31BD-7579-4878-8350-A2F60CE89799}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,16 @@ Global
 		{DE3467DA-40D4-4D4E-A8F9-86726AA98948}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE3467DA-40D4-4D4E-A8F9-86726AA98948}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE3467DA-40D4-4D4E-A8F9-86726AA98948}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB34BD68-B23C-4C85-AA15-AD6F5677970F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB34BD68-B23C-4C85-AA15-AD6F5677970F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB34BD68-B23C-4C85-AA15-AD6F5677970F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EB34BD68-B23C-4C85-AA15-AD6F5677970F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB34BD68-B23C-4C85-AA15-AD6F5677970F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB34BD68-B23C-4C85-AA15-AD6F5677970F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6AEF31BD-7579-4878-8350-A2F60CE89799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AEF31BD-7579-4878-8350-A2F60CE89799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AEF31BD-7579-4878-8350-A2F60CE89799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AEF31BD-7579-4878-8350-A2F60CE89799}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

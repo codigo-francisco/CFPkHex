@@ -1,17 +1,20 @@
 ﻿using CFPkHex.Backend.Models.General;
+using CFPkHex.Core.Repository;
 using PKHeX.Core;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace CFPkHex.Backend.Repository
 {
-    public class Gen3Repository : IRepository
+    public class Gen3Repository : BaseRepository
     {
         private readonly SAV3 _save;
-        public Gen3Repository(SAV3 save) 
+        public Gen3Repository(SAV3 save)
+            : base(save)
         {
             _save = save;
         }
-        public SaveFile AddMaxCandies()
+
+        public override SaveFile AddMaxCandies()
         {
             var inventories = _save.Inventory.ToList();
 
@@ -37,7 +40,7 @@ namespace CFPkHex.Backend.Repository
             return _save;
         }
 
-        public SaveInfo GetSaveInfo()
+        public override SaveInfo GetSaveInfo()
         {
             throw new NotImplementedException();
         }
