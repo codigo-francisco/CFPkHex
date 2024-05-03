@@ -1,4 +1,5 @@
 ﻿using CFPkHex.Backend.Repository;
+using CFPkHex.MAUI.Pages.GenOne;
 using CFPkHex.MAUI.ViewModels;
 using CommunityToolkit.Maui.Storage;
 
@@ -24,7 +25,9 @@ namespace CFPkHex.MAUI
 
         private async void LoadFileBtn_Clicked(object sender, EventArgs e)
         {
-            var result = await FilePicker.Default.PickAsync(new PickOptions
+            await Navigation.PushAsync(new GenOnePage());
+
+            /*var result = await FilePicker.Default.PickAsync(new PickOptions
             {
                 PickerTitle = "Select a Save File"
             });
@@ -41,11 +44,13 @@ namespace CFPkHex.MAUI
                 _repository = builderRepository?.GetRepository(ms.ToArray(), result.FileName);
 
                 await DisplayAlert("Alerta", "Archivo cargado correctamente", "Ok");
+
+                
             }
             else
             {
                 await DisplayAlert("Alerta", "No seleccionó ningún archivo", "Ok");
-            }
+            }*/
         }
 
         private async void SaveFileBtn_Clicked(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CFPkHex.MAUI"
              x:Class="CFPkHex.MAUI.MainPage">
 
     <ScrollView>
@@ -12,20 +13,6 @@
                 Text="Load Save File" 
                 SemanticProperties.Hint="Click here to load a savefile of pokemon game"
                 Clicked="LoadFileBtn_Clicked"
-                HorizontalOptions="Fill" />
-
-            <Button
-                x:Name="AddMaxCandiesBtn"
-                Text="Add Max Candies" 
-                SemanticProperties.Hint="Click here to add max candies in item or pc items"
-                Clicked="AddMaxCandiesBtn_Clicked"
-                HorizontalOptions="Fill" />
-
-            <Button
-                x:Name="SaveFileBtn"
-                Text="Export File" 
-                SemanticProperties.Hint="Click here to export the save file"
-                Clicked="SaveFileBtn_Clicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
