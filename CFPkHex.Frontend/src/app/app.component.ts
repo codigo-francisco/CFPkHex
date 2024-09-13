@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment.development';
 import { FileSaverModule, FileSaverService } from 'ngx-filesaver';
+import { LoadingComponent } from './shared/ui/loading/loading.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, HttpClientModule, FileSaverModule],
+  imports: [RouterOutlet, ReactiveFormsModule, HttpClientModule, FileSaverModule, LoadingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -16,11 +17,23 @@ export class AppComponent {
   title = 'CFPkHex Web';
   form: FormGroup;
   file!: File;
+  loading = true;
 
   constructor(private formBuilder: FormBuilder, private httpClient: HttpClient, private fileSaverService: FileSaverService) {
     this.form = this.formBuilder.group({
       savePokemonFile: this.formBuilder.control(null)
     })
+  }
+
+  ngOnInit() {
+    let initEndPoint = `${environment.apiUrl}/init`
+    this.httpClient.get(initEndPoint).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.loading = false;
+      },
+      error: error => console.error(error)
+    });
   }
 
   uploadFile(event: any) {
