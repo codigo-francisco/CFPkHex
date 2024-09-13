@@ -2,6 +2,8 @@
 using CFPkHex.MAUI.Pages.GenOne;
 using CFPkHex.MAUI.ViewModels;
 using CommunityToolkit.Maui.Storage;
+using CommunityToolkit.Maui.Alerts;
+using Microsoft.Maui.Controls;
 
 namespace CFPkHex.MAUI
 {
@@ -25,7 +27,29 @@ namespace CFPkHex.MAUI
 
         private async void LoadFileBtn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GenOnePage());
+            using var stream = await FileSystem.OpenAppPackageFileAsync("pkemerald.gba");
+            
+            using var ms = new MemoryStream();
+            await stream.CopyToAsync(ms);
+
+            var viewModel = (MainPageViewModel)BindingContext;
+            var builderRepository = viewModel.BuilderRepository;
+            _repository = builderRepository.GetRepository(ms.ToArray(), "pkemerald.gba");
+
+            var pkmViewModel = new PkmViewModel(_repository);
+
+            var genOnePage = new GenOnePage
+            {
+                BindingContext = pkmViewModel
+            };
+
+            await Navigation.PushAsync(genOnePage);
+            /*
+             * using var stream = await FileSystem.OpenAppPackageFileAsync("AboutAssets.txt");
+		using var reader = new StreamReader(stream);
+
+		var contents = reader.ReadToEnd();
+             */
 
             /*var result = await FilePicker.Default.PickAsync(new PickOptions
             {
@@ -34,18 +58,25 @@ namespace CFPkHex.MAUI
 
             if (result != null)
             {
-                var viewModel = BindingContext as MainPageViewModel;
-                var builderRepository = viewModel?.BuilderRepository;
+                var viewModel = (MainPageViewModel)BindingContext;
+                var builderRepository = viewModel.BuilderRepository;
 
                 using var stream = await result.OpenReadAsync();
                 using var ms = new MemoryStream();
                 await stream.CopyToAsync(ms);
 
-                _repository = builderRepository?.GetRepository(ms.ToArray(), result.FileName);
+                _repository = builderRepository.GetRepository(ms.ToArray(), result.FileName);
 
-                await DisplayAlert("Alerta", "Archivo cargado correctamente", "Ok");
+                //await DisplayAlert("CFPkHex", "Archivo cargado correctamente", "OK");
 
-                
+                var pkmViewModel = new PkmViewModel(_repository);
+
+                var genOnePage = new GenOnePage
+                {
+                    BindingContext = pkmViewModel
+                };
+
+                await Navigation.PushAsync(genOnePage);
             }
             else
             {

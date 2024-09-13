@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:CFPkHex.MAUI.Pages.BasePage"
     x:Class="CFPkHex.MAUI.Pages.GenOne.GenOnePage">
 
-    <local:ListBoxPage />
+    <local:ListBoxPage BindingContext="{Binding BoxViewModel}" />
     <local:InventoryPage />
 
 </TabbedPage>

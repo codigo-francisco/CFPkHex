@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CFPkHex.Backend.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace CFPkHex.MAUI.Pages.GenOne
 {
     public partial class GenOnePage : TabbedPage
     {
-        public GenOnePage() 
+        public GenOnePage()
         {
             InitializeComponent();
         }

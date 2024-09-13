@@ -4,9 +4,46 @@
             xmlns:local="clr-namespace:CFPkHex.MAUI"
             x:Class="CFPkHex.MAUI.Pages.BasePage.ListBoxPage">
 
-    <VerticalStackLayout
-        Padding="30"
-        Spacing="25">
-        <Button Text="Button ListboxPage" />
-    </VerticalStackLayout>
+    <StackLayout
+        Orientation="Vertical">
+        <StackLayout
+            BackgroundColor="Red"
+            Orientation="Horizontal"
+            Spacing="20"
+            Padding="20">
+            <Button
+                Text="&lt;"
+                HorizontalOptions="Start"
+                IsEnabled="{Binding IsEnabledBackButton}"
+                Clicked="BackButton_Clicked"
+            />
+            <Picker
+                x:Name="pickerBox"
+                ItemsSource="{Binding Boxes}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedIndex="{Binding CurrentBox}"
+                HorizontalOptions="FillAndExpand"
+                SelectedIndexChanged="Picker_SelectedIndexChanged"
+            />
+            <Button 
+                Text="&gt;" 
+                HorizontalOptions="End"
+                IsEnabled="{Binding IsEnabledNextButton}"
+                Clicked="NextButton_Clicked"
+            />
+        </StackLayout>
+        <Grid 
+            BindableLayout.ItemsSource="{Binding PkmInBox}"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="Blue"
+            ColumnDefinitions="30,Auto,Auto,Auto"
+            RowDefinitions="30,Auto,Auto,Auto,Auto">
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Label TextColor="White" Text="{Binding Name}" />
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </Grid>
+    </StackLayout>
 </ContentPage>
